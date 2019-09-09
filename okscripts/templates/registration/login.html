@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="d-flex align-items-center justify-content-center h-100">
+
+
+
+<form  method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <p>Username:  {{ form.username }} </p>
+    <p>&nbsp;Password:  {{ form.password }} </p>
+
+    <!--<input style="border-radius: 15px; background-color: #E6E6FA" type="submit" value="login">-->
+
+    <input type="submit" value="login" class="btn btn-dark btn-sm btn-block">
+    <input  type="hidden" name="next" value="{{ next }}">
+    {% if form.errors %}
+    <p style="">Login-Pass is invalid</p>
+    {% endif %}
+    {% if next %}
+    <p>No Access</p>
+    {% endif %}
+</form>
+
+</div>
+</div>
+
+
+
+{% endblock %}

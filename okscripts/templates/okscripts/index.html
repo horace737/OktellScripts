@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Scripts
+{% endblock %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+    <h4 class="display-4"><h4>Добавление номера в черный список</h4></h4>
+    <p class="lead">Внесите номер в поле и нажмите кнопку "Add" для внесения номера в черный список</p>
+<div class="d-flex align-items-center justify-content-center h-100">
+    <form class="form-inline" id="blacklist">
+    <input required type="text" class="form-control" placeholder="Введите номер" id="number" name="number">
+        {% if request.user.is_authenticated%}
+        <input type="submit" value="Add" class="btn btn-dark" id="add" name="add">
+        <input type="hidden" value="{{ user.username }}" id="username" name="username">
+        {% endif %}
+</form>
+</div>
+</div>
+{% endblock %}

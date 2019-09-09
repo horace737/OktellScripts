@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Specials
+{% endblock %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+    <h4 class="display-4"><h4>Добавление табельного номера оператора</h4></h4>
+    <p class="lead">Введите логин и табельный номер и нажмите кнопку "Set" для назначения табельного номера</p>
+    <p class="lead">Если у сотрудника уже есть табельный номер, то он не будет заменен</p>
+    <p class="lead">Для принудительной замены табельного номера воспользуйтесь галочкой</p>
+<div class="d-flex align-items-center justify-content-center h-100">
+    <form id="ServiceNumberSet">
+
+
+    <p><input required type="text" class="form-control" placeholder="Логин" id="OperLogin" name="OperLogin"></p>
+    <p><input required type="text" class="form-control" placeholder="Табельный номер" id="ServiceNumber" name="ServiceNumber"></p>
+    <p class="lead"><input type="checkbox"  id="OverWrite" name="OverWrite" value="1">Принудительное присвоение</p>
+    <!--<input style="border-radius: 15px; background-color: #E6E6FA" type="submit" value="login">-->
+
+    <input type="submit" value="Set" class="btn btn-dark btn-sm btn-block">
+    <input type="hidden" value="{{ user.username }}" id="username" name="username">
+</form>
+
+</div>
+</div>
+
+{% endblock %}
